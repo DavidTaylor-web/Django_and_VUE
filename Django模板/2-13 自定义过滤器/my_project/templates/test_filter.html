@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>过滤器的使用</title>
+</head>
+<body>
+<p>
+  {{ name }}-> {{ name|upper }}
+</p>
+<p>
+  {{ list_user|default:'用户列表为空' }}
+</p>
+<p>
+  {{ user_info|default_if_none:'用户信息为空' }}
+</p>
+<p>
+  {{ pi }} -> {{ pi|floatformat:3 }}
+</p>
+<p>{{ my_date|date:'Y-m-d' }}</p>
+<p>
+  {{ html|safe }}
+</p>
+<p>{{ html|truncatechars:5 }}</p>
+<p>{{ html|truncatechars_html:5|safe }}</p>
+</body>
+</html>

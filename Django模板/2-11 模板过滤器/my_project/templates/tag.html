@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DTL标签练习</title>
+  <style type="text/css">
+    .raw1 {
+      color: #f00;
+    }
+    .raw2 {
+      color: #00f;
+    }
+  </style>
+</head>
+<body>
+  <h3>用户列表</h3>
+  {% for user in list_users %}
+    <p class="{% cycle 'raw1' 'raw2' %}">第{{ forloop.counter }}个用户的信息
+    <br/>
+{#    <p>用户名： {{ user.name }}</p>#}
+    {% for key, value in user.items %}
+      {{ key }}: {{ value }}
+      {% endfor %}
+    </p>
+  {% empty %}
+    <p>暂无用户信息</p>
+  {% endfor %}
+  {% comment '我的注释内容' %}
+  {% for a in b %}
+  {% empty %}
+    <p>暂无用户信息</p>
+  {% endfor %}
+  {% endcomment %}
+  <a href="{% url 'index' %}">首页</a>
+  {% load static %}
+  <img src="{% static 'cat.jpg' %}" alt="Cat">
+</body>
+</html>

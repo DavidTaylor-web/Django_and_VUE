@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery实现</title>
+	<script src="/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h3>表单操作</h3>
+		<input type="text" name="username" id="username">
+		<input type="button" value="提交" id="submit">
+	
+		<h3>动态列表</h3>
+		<input type="button" value="加载" id="load">
+		<ul id="list"></ul>
+	</div>
+	<script type="text/javascript">
+		// 赋值
+		$('#username').val('admin');
+		// 获取表单的值
+		$('#submit').click(function() {
+			var username = $('#username').val();
+			console.log('表单的值:', username);
+		});
+
+		// 动态加载城市列表
+		$('#load').click(function() {
+			var dataList = ['北京', '上海', '广州', '深圳'];
+			var container = $('#list');
+			$.each(dataList, function(index, item) {
+				$('<li/>').text(item).appendTo(container)
+			})
+		})
+		
+	</script>
+</body>
+</html>
